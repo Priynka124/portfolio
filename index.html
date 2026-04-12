@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Priyanka Yadav — Digital Publishing Expert</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #2d0a4e;
+      --blue: #9333ea;
+      --sky: #c084fc;
+      --light-blue: #f3e8ff;
+      --pale: #fdf4ff;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --dark: #1a0030;
+      --accent: #ec4899;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem; font-weight: 900;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--gray);
+      font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta {
+      background: var(--blue); color: var(--white);
+      border: none; padding: 0.5rem 1.3rem;
+      border-radius: 6px; cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem; font-weight: 600;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .nav-cta:hover { background: var(--navy); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, #4a1272 50%, #831843 100%);
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(192,132,252,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-content { max-width: 650px; z-index: 1; animation: fadeUp 0.9s ease both; }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(192,132,252,0.2);
+      border: 1px solid rgba(192,132,252,0.4);
+      color: #e9d5ff;
+      padding: 0.35rem 1rem;
+      border-radius: 30px; font-size: 0.82rem; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 900; color: var(--white);
+      line-height: 1.1; letter-spacing: -1px;
+      margin-bottom: 1rem;
+    }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero-desc {
+      color: #e9d5ff; font-size: 1.1rem; line-height: 1.7;
+      margin-bottom: 2.5rem; font-weight: 300;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--blue); color: var(--white);
+      padding: 0.85rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.95rem;
+      transition: all 0.2s; border: 2px solid var(--blue);
+      display: inline-block;
+    }
+    .btn-primary:hover { background: #1d4ed8; border-color: #1d4ed8; transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      padding: 0.85rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 600; font-size: 0.95rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      transition: all 0.2s; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3.5rem;
+      padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem; font-weight: 900; color: var(--white);
+    }
+    .stat-label { color: #e9d5ff; font-size: 0.82rem; font-weight: 500; margin-top: 0.2rem; }
+
+    /* ── SECTIONS COMMON ── */
+    section { padding: 90px 5%; }
+    .section-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800; color: var(--navy);
+      line-height: 1.2; margin-bottom: 1rem;
+    }
+    .section-sub {
+      color: var(--gray); font-size: 1rem; line-height: 1.7;
+      max-width: 520px;
+    }
+
+    /* ── ABOUT ── */
+    .about { background: var(--pale); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center; margin-top: 3rem;
+    }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-box {
+      width: 100%; aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--light-blue), #e9d5ff);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 6rem; position: relative; overflow: hidden;
+    }
+    .about-img-box::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(26,86,219,0.15));
+    }
+    .about-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--blue); color: var(--white);
+      padding: 1rem 1.5rem; border-radius: 12px;
+      font-weight: 700; text-align: center;
+      box-shadow: 0 8px 30px rgba(147,51,234,0.4);
+    }
+    .about-badge .num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem; display: block;
+    }
+    .about-badge .lbl { font-size: 0.75rem; opacity: 0.85; }
+    .about-text p { color: var(--gray); line-height: 1.8; margin-bottom: 1.2rem; }
+    .about-list { list-style: none; margin-top: 1.5rem; }
+    .about-list li {
+      display: flex; align-items: center; gap: 0.75rem;
+      color: var(--dark); font-weight: 500; margin-bottom: 0.75rem;
+    }
+    .about-list li::before {
+      content: '✦'; color: var(--blue); font-size: 0.8rem;
+    }
+
+    /* ── SKILLS ── */
+    .skills { background: var(--white); }
+    .skills-header { margin-bottom: 3rem; }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: var(--pale);
+      border: 1px solid #e0eeff;
+      border-radius: 14px; padding: 1.75rem;
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .skill-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--sky));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .skill-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(147,51,234,0.12); }
+    .skill-card:hover::before { transform: scaleX(1); }
+    .skill-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .skill-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 0.5rem;
+    }
+    .skill-desc { color: var(--gray); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.2rem; }
+    .skill-bar-wrap {
+      background: #f3e8ff; border-radius: 30px; height: 6px; overflow: hidden;
+    }
+    .skill-bar {
+      height: 100%; border-radius: 30px;
+      background: linear-gradient(90deg, var(--blue), var(--accent));
+    }
+    @keyframes growBar { from { width: 0; } }
+
+    /* ── PORTFOLIO ── */
+    .portfolio { background: var(--pale); }
+    .portfolio-header { margin-bottom: 3rem; }
+    .portfolio-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.75rem;
+    }
+    .port-card {
+      background: var(--white);
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid #e0eeff;
+      transition: all 0.3s;
+    }
+    .port-card:hover { transform: translateY(-6px); box-shadow: 0 16px 50px rgba(147,51,234,0.15); }
+    .port-thumb {
+      height: 180px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem; position: relative; overflow: hidden;
+    }
+    .port-thumb-1 { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+    .port-thumb-2 { background: linear-gradient(135deg, #e0f2fe, #bae6fd); }
+    .port-thumb-3 { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+    .port-thumb-4 { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+    .port-thumb-5 { background: linear-gradient(135deg, #dcfce7, #bbf7d0); }
+    .port-thumb-6 { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+    .port-info { padding: 1.4rem; }
+    .port-tag {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem;
+    }
+    .port-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 0.4rem;
+    }
+    .port-desc { color: var(--gray); font-size: 0.85rem; line-height: 1.6; }
+
+    /* ── CASE STUDIES ── */
+    .cases { background: var(--white); }
+    .cases-header { margin-bottom: 3rem; }
+    .case-card {
+      background: var(--pale);
+      border: 1px solid #e9d5ff;
+      border-radius: 18px; padding: 2.2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .case-card::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0; width: 5px;
+      background: linear-gradient(180deg, var(--blue), var(--accent));
+      border-radius: 5px 0 0 5px;
+    }
+    .case-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(147,51,234,0.12); }
+    .case-top {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.2rem; flex-wrap: wrap;
+    }
+    .case-icon {
+      width: 50px; height: 50px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--blue), var(--accent));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .case-title-wrap { flex: 1; }
+    .case-tag {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 0.3rem;
+    }
+    .case-title {
+      font-size: 1.15rem; font-weight: 700; color: var(--navy);
+    }
+    .case-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem; margin: 1.2rem 0;
+    }
+    .case-block { background: var(--white); border-radius: 10px; padding: 1rem 1.2rem; }
+    .case-block-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 0.4rem;
+    }
+    .case-block-text { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+    .case-result {
+      background: linear-gradient(135deg, rgba(147,51,234,0.08), rgba(236,72,153,0.08));
+      border: 1px solid rgba(147,51,234,0.15);
+      border-radius: 10px; padding: 1rem 1.2rem;
+      margin-top: 1rem;
+    }
+    .case-result-label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem;
+    }
+    .case-result-text { font-size: 0.88rem; color: var(--dark); font-weight: 500; line-height: 1.6; }
+    .platforms { display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
+    .platform-badge {
+      display: flex; align-items: center; gap: 0.5rem;
+      background: var(--white); border: 1px solid #e9d5ff;
+      border-radius: 30px; padding: 0.4rem 1rem;
+      font-size: 0.82rem; font-weight: 600; color: var(--navy);
+    }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--navy); }
+    .contact .section-title { color: var(--white); }
+    .contact .section-label { color: #e9d5ff; }
+    .contact .section-sub { color: #e9d5ff; }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 5rem; margin-top: 3rem; align-items: start;
+    }
+    .contact-info-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    .contact-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(192,132,252,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .contact-info-label { color: #e9d5ff; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .contact-info-value { color: var(--white); font-size: 0.95rem; font-weight: 500; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group label {
+      color: #e9d5ff; font-size: 0.82rem; font-weight: 600;
+      margin-bottom: 0.4rem; letter-spacing: 0.5px;
+    }
+    .form-group input,
+    .form-group textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px; padding: 0.75rem 1rem;
+      color: var(--white); font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem; outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--sky); }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .btn-submit {
+      background: var(--blue); color: var(--white);
+      border: none; padding: 0.9rem 2.5rem;
+      border-radius: 8px; font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; transition: all 0.2s;
+      align-self: flex-start;
+    }
+    .btn-submit:hover { background: #1d4ed8; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060f1e; color: #6b7280;
+      text-align: center; padding: 2rem 5%;
+      font-size: 0.85rem;
+    }
+    footer span { color: var(--blue); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">P<span>.</span>Yadav</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">✦ Available for Freelance</div>
+    <h1>Priyanka<br/><em>Yadav</em></h1>
+    <p class="hero-desc">
+      Digital Publishing Expert · Adobe InDesign & ePub Specialist · Kindle Formatter · WordPress Blog Publisher. Passionate about creating clean, professional digital content.
+    </p>
+    <div class="hero-btns">
+      <a href="#portfolio" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap fade-in">
+      <div class="about-img-box">👩‍💻</div>
+      <div class="about-badge">
+        <span class="num">3+</span>
+        <span class="lbl">Years of Excellence</span>
+      </div>
+    </div>
+    <div class="about-text fade-in">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Crafting Digital Experiences with Precision</h2>
+      <p>Hi! I'm <strong>Priyanka Yadav</strong>, a dedicated Digital Publishing professional with hands-on experience in formatting and publishing educational digital content.</p>
+      <p>I specialize in formatting CBSE children's textbooks and 10 Years Solved Papers using Adobe InDesign — checking errors, fixing layouts, exporting to ePub format and making books clean and user-friendly for digital reading. I also write and publish blog posts on WordPress and have basic HTML & CSS knowledge.</p>
+      <ul class="about-list">
+        <li>Adobe InDesign — Error Checking & Book Formatting</li>
+        <li>ePub Formatting — Layout Fixing & User-Friendly Output</li>
+        <li>Digital Publishing — CBSE Textbooks & Solved Papers</li>
+        <li>Kindle eBook Formatting & Publishing</li>
+        <li>WordPress — Creating Posts, Adding Content & Images, Format Checking & Publishing</li>
+        <li>Content Tracking — Managing & updating Excel sheets for published posts</li>
+        <li>Basic HTML & CSS Knowledge</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="skills-header fade-in">
+    <div class="section-label">My Skills</div>
+    <h2 class="section-title">What I Bring to the Table</h2>
+    <p class="section-sub">A versatile skill set built through real projects and professional experience in digital publishing and web development.</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card fade-in">
+      <div class="skill-icon">📰</div>
+      <div class="skill-name">Digital Publishing</div>
+      <div class="skill-desc">Professional experience formatting CBSE educational textbooks and solved papers using Adobe InDesign and exporting to ePub for clean digital reading.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">🌐</div>
+      <div class="skill-name">WordPress Publishing</div>
+      <div class="skill-desc">Receiving content from manager, creating posts in WordPress, adding text and images, checking formatting and publishing. Tracking completed posts in Excel sheet.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:65%"></div></div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">💻</div>
+      <div class="skill-name">Basic HTML & CSS</div>
+      <div class="skill-desc">Basic understanding of HTML & CSS — able to read, follow and make simple edits to web page structure and styling.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:50%"></div></div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">📚</div>
+      <div class="skill-name">Kindle Formatting</div>
+      <div class="skill-desc">Professional eBook formatting for Amazon Kindle — proper structure, TOC, styles, and publishing-ready output.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">✍️</div>
+      <div class="skill-name">Content Management</div>
+      <div class="skill-desc">Managing and organizing digital content efficiently across CMS platforms with attention to quality and consistency.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">🖥</div>
+      <div class="skill-name">Adobe InDesign & ePub</div>
+      <div class="skill-desc">Opening book files in Adobe InDesign, checking and fixing formatting errors, exporting to ePub format and fixing ePub layout to make books clean and user-friendly.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-header fade-in">
+    <div class="section-label">My Work</div>
+    <h2 class="section-title">Projects I'm Proud Of</h2>
+    <p class="section-sub">A selection of work spanning digital publishing, WordPress development, and eBook formatting.</p>
+  </div>
+  <div class="portfolio-grid">
+    <div class="port-card fade-in">
+      <div class="port-thumb port-thumb-1">📖</div>
+      <div class="port-info">
+        <div class="port-tag">InDesign & ePub Formatting</div>
+        <div class="port-title">CBSE Book ePub Formatting</div>
+        <div class="port-desc">Opened CBSE textbook files in Adobe InDesign, fixed errors, exported to ePub and fixed the layout for user-friendly digital reading.</div>
+      </div>
+    </div>
+    <div class="port-card fade-in">
+      <div class="port-thumb port-thumb-2">🌐</div>
+      <div class="port-info">
+        <div class="port-tag">WordPress Publishing</div>
+        <div class="port-title">Blog Post Publishing & Tracking</div>
+        <div class="port-desc">Creating WordPress posts from manager-provided content — adding text, images, checking format, publishing and tracking completion in Excel sheet.</div>
+      </div>
+    </div>
+    <div class="port-card fade-in">
+      <div class="port-thumb port-thumb-3">📚</div>
+      <div class="port-info">
+        <div class="port-tag">Kindle Formatting</div>
+        <div class="port-title">eBook Formatting Project</div>
+        <div class="port-desc">Formatted a 200+ page eBook for Amazon Kindle with proper TOC, styles, and chapter structure.</div>
+      </div>
+    </div>
+    <div class="port-card fade-in">
+      <div class="port-thumb port-thumb-4">💻</div>
+      <div class="port-info">
+        <div class="port-tag">Basic HTML & CSS</div>
+        <div class="port-title">Simple Web Page Edits</div>
+        <div class="port-desc">Basic editing and formatting of web page content using simple HTML & CSS — text changes, styling and structure fixes.</div>
+      </div>
+    </div>
+    <div class="port-card fade-in">
+      <div class="port-thumb port-thumb-5">📊</div>
+      <div class="port-info">
+        <div class="port-tag">Excel Tracking</div>
+        <div class="port-title">Post Tracking & Reporting</div>
+        <div class="port-desc">Maintaining Excel sheets to track which blog posts were completed and published — keeping records accurate and up to date for the manager.</div>
+      </div>
+    </div>
+    <div class="port-card fade-in">
+      <div class="port-thumb port-thumb-6">🎨</div>
+      <div class="port-info">
+        <div class="port-tag">Layout Design</div>
+        <div class="port-title">Digital Brochure</div>
+        <div class="port-desc">Created a visually rich digital brochure with professional layout for corporate publishing needs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="cases" id="cases">
+  <div class="cases-header fade-in">
+    <div class="section-label">Case Studies</div>
+    <h2 class="section-title">How I Work — Real Project Details</h2>
+    <p class="section-sub">A closer look at my actual work — what the goal was, what I did, and what the result was.</p>
+  </div>
+
+  <!-- Case 1 -->
+  <div class="case-card fade-in">
+    <div class="case-top">
+      <div class="case-icon">📚</div>
+      <div class="case-title-wrap">
+        <div class="case-tag">Kindle Formatting</div>
+        <div class="case-title">eBook Formatting & Publishing on Amazon Kindle</div>
+      </div>
+    </div>
+    <div class="case-grid">
+      <div class="case-block">
+        <div class="case-block-label">🎯 Goal</div>
+        <div class="case-block-text">Format a raw Word document manuscript into a properly structured Kindle eBook ready for Amazon publishing.</div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">🛠 What I Did</div>
+        <div class="case-block-text">Cleaned up the document, added a proper Table of Contents, fixed chapter headings, styled the text and prepared the final Kindle file.</div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">⚡ Challenge</div>
+        <div class="case-block-text">The original document had inconsistent formatting and missing chapter breaks — I fixed all issues to meet Amazon's Kindle guidelines.</div>
+      </div>
+    </div>
+    <div class="case-result">
+      <div class="case-result-label">✅ Result</div>
+      <div class="case-result-text">The eBook was successfully published on Amazon Kindle with a clean, professional layout that matched the client's vision.</div>
+    </div>
+    <div class="platforms">
+      <div class="platform-badge">📖 Amazon Kindle</div>
+      <div class="platform-badge">📝 MS Word</div>
+      <div class="platform-badge">🔧 Kindle Create</div>
+    </div>
+  </div>
+
+  <!-- Case 2 -->
+  <div class="case-card fade-in">
+    <div class="case-top">
+      <div class="case-icon">📖</div>
+      <div class="case-title-wrap">
+        <div class="case-tag">Adobe InDesign & ePub Formatting</div>
+        <div class="case-title">CBSE Textbook & Solved Paper ePub Formatting</div>
+      </div>
+    </div>
+    <div class="case-grid">
+      <div class="case-block">
+        <div class="case-block-label">🎯 Goal</div>
+        <div class="case-block-text">Convert CBSE children's textbooks and 10 Years Solved Papers from InDesign files into properly formatted, user-friendly ePub books ready for digital publishing.</div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">🛠 What I Did</div>
+        <div class="case-block-text">Opened the book file in Adobe InDesign, carefully checked for formatting errors, fixed all issues, exported the file to ePub format, then opened it in ePub software to fix the layout and make it clean and user-friendly.</div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">⚡ Challenge</div>
+        <div class="case-block-text">Children's educational books have complex layouts — tables, questions, diagrams and chapters. Making sure everything looked correct and readable in ePub format required careful attention to detail.</div>
+      </div>
+    </div>
+    <div class="case-result">
+      <div class="case-result-label">✅ Result</div>
+      <div class="case-result-text">Successfully formatted and delivered multiple CBSE books in ePub format — all books were user-friendly, error-free and approved by the manager for digital publishing.</div>
+    </div>
+    <div class="platforms">
+      <div class="platform-badge">🖥 Adobe InDesign</div>
+      <div class="platform-badge">📱 ePub Format</div>
+      <div class="platform-badge">📚 CBSE Books</div>
+      <div class="platform-badge">✅ Educational Publishing</div>
+    </div>
+  </div>
+
+  <!-- Case 3 -->
+  <div class="case-card fade-in">
+    <div class="case-top">
+      <div class="case-icon">🌐</div>
+      <div class="case-title-wrap">
+        <div class="case-tag">WordPress</div>
+        <div class="case-title">Blog Post Publishing & Content Management</div>
+      </div>
+    </div>
+    <div class="case-grid">
+      <div class="case-block">
+        <div class="case-block-label">🎯 Goal</div>
+        <div class="case-block-text">Publish blog posts on WordPress accurately and on time — using content provided by the manager and tracking every completed post properly.</div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">🛠 What I Did</div>
+        <div class="case-block-text">Received content from manager → Created a new post in WordPress → Added text and images → Checked formatting carefully → Published the post → Marked it as complete in the Excel tracking sheet.</div>
+      </div>
+      <div class="case-block">
+        <div class="case-block-label">⚡ Challenge</div>
+        <div class="case-block-text">Making sure every post had correct formatting, proper images and was published without errors — while keeping the Excel tracking sheet updated and accurate at all times.</div>
+      </div>
+    </div>
+    <div class="case-result">
+      <div class="case-result-label">✅ Result</div>
+      <div class="case-result-text">All assigned blog posts were published correctly and on time — with proper formatting and images. The Excel tracking sheet was always up to date, making it easy for the manager to monitor progress.</div>
+    </div>
+    <div class="platforms">
+      <div class="platform-badge">🌐 WordPress</div>
+      <div class="platform-badge">🖼 Image Uploading</div>
+      <div class="platform-badge">📊 Excel Tracking</div>
+      <div class="platform-badge">✅ Content Publishing</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="fade-in">
+    <div class="section-label">Contact Me</div>
+    <h2 class="section-title">Let's Work Together</h2>
+    <p class="section-sub">Have a project in mind? I'd love to hear about it. Send me a message and let's create something great!</p>
+  </div>
+  <div class="contact-grid">
+    <div class="fade-in">
+      <div class="contact-info-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-value">priynka974@gmail.com</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-info-label">Location</div>
+          <div class="contact-info-value">India</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">💼</div>
+        <div>
+          <div class="contact-info-label">Available For</div>
+          <div class="contact-info-value">Freelance & Full-time Projects</div>
+        </div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-icon">⏰</div>
+        <div>
+          <div class="contact-info-label">Response Time</div>
+          <div class="contact-info-value">Within 24 hours</div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="John Doe" required/>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="john@example.com" required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" placeholder="Project Inquiry" required/>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell me about your project..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">Send Message ✦</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <span>Priyanka Yadav</span>. All rights reserved. · Digital Publishing Expert</p>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = '✅ Message Sent!';
+    btn.style.background = '#059669';
+    setTimeout(() => {
+      btn.textContent = 'Send Message ✦';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+</body>
+</html>
